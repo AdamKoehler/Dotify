@@ -1,0 +1,8 @@
+<Solution>
+  <Project Path="Dotify.AppHost/Dotify.AppHost.csproj" />
+  <Project Path="Dotify.Server/Dotify.API.csproj" />
+  <Project Path="frontend/Dotify.Web.esproj">
+    <Build />
+    <Deploy />
+  </Project>
+</Solution>
