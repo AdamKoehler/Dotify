@@ -1,0 +1,11 @@
+<Project>
+
+  <PropertyGroup>
+    <!-- Audit direct and transitive packages against the NuGet/GitHub advisory feed on every restore. -->
+    <NuGetAuditMode>all</NuGetAuditMode>
+    <NuGetAuditLevel>low</NuGetAuditLevel>
+    <!-- Moderate+ advisories fail the build instead of scrolling past as warnings. -->
+    <WarningsAsErrors>$(WarningsAsErrors);NU1902;NU1903;NU1904</WarningsAsErrors>
+  </PropertyGroup>
+
+</Project>
