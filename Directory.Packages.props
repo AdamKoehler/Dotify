@@ -16,7 +16,7 @@
     <!-- Pinned to the latest 2.x patch (not 3.x) to stay compatible with the source
          generator embedded in Microsoft.AspNetCore.OpenApi 10.0.10, which targets the
          Microsoft.OpenApi 2.x object model. See GHSA-v5pm-xwqc-g5wc; fixed in 2.7.5+. -->
-    <PackageVersion Include="Microsoft.OpenApi" Version="2.9.0" />
+    <PackageVersion Include="Microsoft.OpenApi" Version="3.9.0" />
     <PackageVersion Include="OpenTelemetry.Exporter.OpenTelemetryProtocol" Version="1.17.0" />
     <PackageVersion Include="OpenTelemetry.Extensions.Hosting" Version="1.17.0" />
     <PackageVersion Include="OpenTelemetry.Instrumentation.AspNetCore" Version="1.17.0" />
