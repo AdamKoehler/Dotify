@@ -361,3 +361,9 @@ MigrationBackup/
 
 # Fody - auto-generated XML schema
 FodyWeavers.xsd
+
+# Local planning/assistant docs (not for the public repo)
+CLAUDE.md
+docs/superpowers/
+.claude/
+.superpowers/
