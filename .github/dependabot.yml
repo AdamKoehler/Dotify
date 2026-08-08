@@ -10,6 +10,6 @@ updates:
           - "OpenTelemetry.*"
 
   - package-ecosystem: "npm"
-    directory: "/frontend"
+    directory: "/Dotify.UI"
     schedule:
       interval: "weekly"
