@@ -16,7 +16,7 @@
       <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
       <PrivateAssets>all</PrivateAssets>
     </PackageVersion>
-    <PackageVersion Include="Microsoft.Extensions.Http.Resilience" Version="10.8.0" />
+    <PackageVersion Include="Microsoft.Extensions.Http.Resilience" Version="10.9.0" />
     <PackageVersion Include="Microsoft.Extensions.ServiceDiscovery" Version="10.8.0" />
     <!-- Pinned to the latest 2.x patch (not 3.x) to stay compatible with the source
          generator embedded in Microsoft.AspNetCore.OpenApi 10.0.10, which targets the
