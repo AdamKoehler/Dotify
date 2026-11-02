@@ -8,6 +8,7 @@ var server = builder.AddProject<Projects.Dotify_API>("server")
     .WithReference(dotifyDb)
     .WaitFor(dotifyDb)
     .WithHttpHealthCheck("/health")
+    .WithUrlForEndpoint("http", ep => new() { Url = "/scalar", DisplayText = "Scalar" })
     .WithExternalHttpEndpoints();
 
 var webfrontend = builder.AddViteApp("webfrontend", "../Dotify.UI")
