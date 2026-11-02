@@ -1,4 +1,8 @@
 <Solution>
+  <Folder Name="/Solution Items/">
+    <File Path="Directory.Build.props" />
+    <File Path="Directory.Packages.props" />
+  </Folder>
   <Project Path="Dotify.AppHost/Dotify.AppHost.csproj" />
   <Project Path="Dotify.Server/Dotify.API.csproj" />
   <Project Path="Dotify.Server.Tests/Dotify.Server.Tests.csproj" />
