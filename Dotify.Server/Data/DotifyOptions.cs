@@ -14,5 +14,9 @@ public class DotifyOptions
 public class AdminSeedOptions
 {
     public string? UserName { get; set; }
+    public string? Email { get; set; }
     public string? Password { get; set; }
+
+    public string ResolveEmail() =>
+        string.IsNullOrWhiteSpace(Email) ? $"{UserName}@dotify.local" : Email;
 }

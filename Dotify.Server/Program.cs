@@ -1,4 +1,5 @@
 using Dotify.Server.Data;
+using Dotify.Server.Features.Auth;
 using Microsoft.EntityFrameworkCore;
 using Scalar.AspNetCore;
 
@@ -15,14 +16,19 @@ Directory.CreateDirectory(dataRoot);
 Directory.CreateDirectory(Path.Combine(dataRoot, "audio"));
 Directory.CreateDirectory(Path.Combine(dataRoot, "covers"));
 builder.AddSqlServerDbContext<DotifyDbContext>("dotify");
+builder.AddDotifyAuth();
 
 var app = builder.Build();
 
 app.UseExceptionHandler();
+app.UseAuthentication();
+app.UseAuthorization();
+app.UseAntiforgery();
 
 using (var scope = app.Services.CreateScope())
 {
     scope.ServiceProvider.GetRequiredService<DotifyDbContext>().Database.Migrate();
+    await AdminSeeder.SeedAsync(scope.ServiceProvider);
 }
 
 if (app.Environment.IsDevelopment())
@@ -31,7 +37,8 @@ if (app.Environment.IsDevelopment())
     app.MapScalarApiReference();
 }
 
-var api = app.MapGroup("/api");
+var api = app.MapGroup("/api").RequireAuthorization();
+api.MapAuthEndpoints();
 
 app.MapDefaultEndpoints();
 app.UseFileServer();
