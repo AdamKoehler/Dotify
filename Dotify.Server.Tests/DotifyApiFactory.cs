@@ -5,7 +5,7 @@ using Testcontainers.MsSql;
 
 namespace Dotify.Server.Tests;
 
-public sealed class DotifyApiFactory : WebApplicationFactory<Program>, IAsyncLifetime
+public class DotifyApiFactory : WebApplicationFactory<Program>, IAsyncLifetime
 {
     private readonly MsSqlContainer _sql = new MsSqlBuilder().Build();
     public string DataRoot { get; } =
@@ -23,6 +23,7 @@ public sealed class DotifyApiFactory : WebApplicationFactory<Program>, IAsyncLif
         builder.UseSetting("ConnectionStrings:dotify", conn.ConnectionString);
         builder.UseSetting("Dotify:DataRoot", DataRoot);
         builder.UseSetting("Dotify:Admin:UserName", "admin");
+        builder.UseSetting("Dotify:Admin:Email", "admin@dotify.local");
         builder.UseSetting("Dotify:Admin:Password", "AdminPass1!");
     }
 
