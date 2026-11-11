@@ -68,6 +68,19 @@ public static class AuthRegistration
 
         builder.Services.AddScoped<IAuthService, AuthService>();
 
+        // Validation only; Program.cs binds DotifyOptions.
+        builder.Services.AddOptions<DotifyOptions>()
+            .Validate(
+                o => AuthLinkBuilder.IsValidPublicBaseUrl(o.PublicBaseUrl),
+                AuthLinkBuilder.PublicBaseUrlError)
+            .ValidateOnStart();
+
+        builder.Services.AddSingleton<AuthLinkBuilder>();
+
+        // SECURITY: unconditional, so #43's reset tokens would reach the log sink outside
+        // Development. #44 must replace this before #43 ships to a non-Development environment.
+        builder.Services.AddScoped<IEmailSender, LoggingEmailSender>();
+
         return builder;
     }
 
